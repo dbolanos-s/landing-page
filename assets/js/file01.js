@@ -1,6 +1,7 @@
 "use strict";
 
 import { fetchCategories, fetchProducts } from './functions.js';
+import { saveVote, getVotes } from './firebase.js';
 
 const databaseURL = 'https://<your-project>.firebaseio.com/subscribers.json';
 
@@ -96,6 +97,59 @@ const renderCategories = async () => {
         }
     } catch (error) {
         alert(error.message);
+    }
+};
+
+/**
+ * Habilita el formulario de votación y guarda el voto en Firebase.
+ * @returns {void}
+ */
+const enableForm = () => {
+    const form = document.getElementById('form_voting');
+    if (!form) return;
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const productID = document.getElementById('select_product').value;
+        if (!productID) {
+            alert('Seleccione un producto antes de votar.');
+            return;
+        }
+        const result = await saveVote(productID);
+        alert(result.message);
+        if (result.status === 'success') {
+            form.reset();
+            displayVotes();
+        }
+    });
+};
+
+/**
+ * Obtiene los votos desde Firebase y los muestra agrupados en una tabla.
+ * @returns {Promise<void>}
+ */
+const displayVotes = async () => {
+    const resultsDiv = document.getElementById('results');
+    if (!resultsDiv) return;
+
+    const result = await getVotes();
+
+    if (result.status === 'success') {
+        const totals = {};
+        const votes = result.data;
+        for (let key in votes) {
+            const productID = votes[key].productID;
+            totals[productID] = (totals[productID] || 0) + 1;
+        }
+
+        let table = '<table class="w-full text-left text-gray-700 dark:text-gray-200"><tr><th class="p-2">Producto</th><th class="p-2">Total Votos</th></tr>';
+        for (let productID in totals) {
+            table += `<tr><td class="p-2">${productID}</td><td class="p-2">${totals[productID]}</td></tr>`;
+        }
+        table += '</table>';
+        resultsDiv.innerHTML = table;
+    } else {
+        resultsDiv.innerHTML = `<p class="text-gray-500 dark:text-gray-300 text-center mt-16">${result.message || 'Resultado de la votación'}</p>`;
     }
 };
 
@@ -230,6 +284,8 @@ const ready = () => {
     getData();
     renderProducts();
     renderCategories();
+    enableForm();
+    displayVotes();
 };
 
 (() => {
