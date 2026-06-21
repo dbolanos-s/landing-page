@@ -40,7 +40,7 @@ const renderMenu = () => {
                 let cardHTML = `
                     <div class="card card-border shadow-none">
                         <figure>
-                            <img src="[IMG]" alt="[NOMBRE]" class="h-48 w-full object-cover" />
+                            <img src="[IMG]" alt="[NOMBRE]" class="h-28 w-full object-cover sm:h-40" />
                         </figure>
                         <div class="card-body gap-2">
                             <div class="flex items-center justify-between">
