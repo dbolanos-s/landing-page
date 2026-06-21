@@ -35,6 +35,11 @@ h3,
   transition: color 0.2s ease;
 }
 
+img[alt="ESPOL"] {
+  height: 1.75rem;
+  width: auto;
+}
+
 .btn-primary {
   background-image: none;
   background-color: var(--color-primary);
@@ -57,4 +62,49 @@ h3,
 #menu-container .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 22px rgba(239, 108, 26, 0.18);
+}
+
+.frutanga-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.frutanga-strip img {
+  height: 5rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+#menu-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+#menu-container img {
+  height: 7rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .frutanga-strip {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+  }
+  .frutanga-strip img {
+    height: 7rem;
+  }
+  #menu-container img {
+    height: 10rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #menu-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
 }
