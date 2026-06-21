@@ -2,7 +2,7 @@
 
 import { fetchMenu } from './functions.js';
 
-const databaseURL = 'https://TU-PROYECTO-default-rtdb.firebaseio.com/suscriptores.json';
+const databaseURL = 'https://landing-2de01-default-rtdb.firebaseio.com/favoritos.json';
 
 const showToast = () => {
     const toast = document.getElementById("toast-interactive");
@@ -106,9 +106,6 @@ const sendData = () => {
 };
 
 const getData = async () => {
-    if (databaseURL.includes('TU-PROYECTO')) {
-        return;
-    }
     try {
         const response = await fetch(databaseURL, {
             method: 'GET'
