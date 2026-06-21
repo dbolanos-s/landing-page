@@ -1,25 +1,32 @@
-# Restaurant – Free Tailwind CSS Restaurant Landing Page
-#### Preview
+# Frutanga – Landing Page
 
- - [Demo](https://themewagon.github.io/restaurant/)
+Landing page de **Frutanga**, el comedor de la ESPOL. Tostadas, batidos, fritada,
+hamburguesas y hot dogs a precio de estudiante.
 
-#### Download
- - [Download from ThemeWagon](https://themewagon.com/themes/restaurant/)
+Proyecto 03 de Desarrollo de Aplicaciones Web y Móviles. Hecho con TailwindCSS
+(FlyonUI) y JavaScript.
 
-## Getting Started
+## Cómo verlo
 
-1. Clone Repository
+Es un sitio estático, no necesita compilarse. Se puede servir con cualquier
+servidor estático, por ejemplo:
+
 ```
-git clone https://github.com/themewagon/restaurant.git
-```
-
-## Author 
-```
-Design and code is completely written by FlyonUI and development team. 
+python -m http.server 5050
 ```
 
-## License
+y abrir http://localhost:5050
 
- - Design and Code is Copyright &copy; [FlyonUI](https://flyonui.com/)
- - Licensed cover under [MIT]
- - Distributed by [ThemeWagon](https://themewagon.com)
+## Qué tiene
+
+- Secciones: inicio, nosotros, especialidades, menú, equipo, contacto y registro.
+- Menú que se carga con `fetch` (HTTP GET) desde `assets/data/menu.json`.
+- Formulario de registro que envía los datos con `fetch` (HTTP POST) y los
+  muestra en una tabla con `fetch` (HTTP GET).
+- Menú de navegación entre secciones, responsive y con estilos propios.
+
+## Firebase
+
+El formulario guarda los registros en una Realtime Database de Firebase.
+Reemplaza la constante `databaseURL` en `assets/js/file01.js` por la URL de tu
+base (formato `https://TU-PROYECTO-default-rtdb.firebaseio.com/suscriptores.json`).
