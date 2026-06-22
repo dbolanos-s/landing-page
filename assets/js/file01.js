@@ -163,7 +163,6 @@ const ready = () => {
 };
 
 (() => {
-    alert("¡Bienvenido a Frutanga, el sabor del campus!");
     console.log("Mensaje de bienvenida mostrado.");
     showToast();
     showVideo();
