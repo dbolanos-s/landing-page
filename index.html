@@ -67,6 +67,7 @@
                 <a href="#menu" class="hover:text-primary nav-link">Menú</a>
                 <a href="#subscribers-data" class="hover:text-primary nav-link">Favoritos</a>
                 <a href="#contact-us" class="hover:text-primary nav-link">Contacto</a>
+                <a href="#testimonios" class="hover:text-primary nav-link">Reseñas</a>
               </div>
             </div>
             <div class="navbar-end max-lg:hidden">
@@ -187,9 +188,7 @@
               </div>
               <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <div class="card card-border shadow-none">
-                  <figure>
-                    <img src="assets/img/desayunos.jpg" alt="Desayuno ecuatoriano" class="h-64 w-full object-cover" />
-                  </figure>
+                  <figure><img src="assets/img/desayunos.jpg" alt="Desayuno ecuatoriano" class="h-64 w-full object-cover" /></figure>
                   <div class="card-body gap-3">
                     <h5 class="card-title text-xl">Desayunos</h5>
                     <p class="mb-5">Tostadas mixtas, bolones y un café para arrancar el día con energía antes de la primera clase. Recién hechos cada mañana.</p>
@@ -199,9 +198,7 @@
                   </div>
                 </div>
                 <div class="card card-border shadow-none">
-                  <figure>
-                    <img src="assets/img/almuerzos.png" alt="Almuerzo con fritada" class="h-64 w-full object-cover" />
-                  </figure>
+                  <figure><img src="assets/img/almuerzos.png" alt="Almuerzo con fritada" class="h-64 w-full object-cover" /></figure>
                   <div class="card-body gap-3">
                     <h5 class="card-title text-xl">Almuerzos</h5>
                     <p class="mb-5">El plato fuerte del día: fritada, hamburguesas y hot dogs bien servidos para aguantar la tarde de clases. Llena de verdad.</p>
@@ -211,9 +208,7 @@
                   </div>
                 </div>
                 <div class="card card-border shadow-none">
-                  <figure>
-                    <img src="assets/img/licuados.webp" alt="Batidos y jugos naturales" class="h-64 w-full object-cover" />
-                  </figure>
+                  <figure><img src="assets/img/licuados.webp" alt="Batidos y jugos naturales" class="h-64 w-full object-cover" /></figure>
                   <div class="card-body gap-3">
                     <h5 class="card-title text-xl">Batidos & Jugos</h5>
                     <p class="mb-5">Batidos de fruta natural, jugos y la famosa "frutanga" bien fría para el calor de Guayaquil. El refresco perfecto del campus.</p>
@@ -387,6 +382,79 @@
             </div>
           </div>
         </section>
+        <!-- Testimonios -->
+        <section id="testimonios">
+          <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+            <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
+                <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">Lo que dicen los estudiantes</h2>
+                <p class="text-base-content/80 text-xl">Opiniones reales de la comunidad ESPOL.</p>
+              </div>
+              <div id="testimonios-carousel" data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "md": 2, "lg": 3 } }' class="relative w-full">
+                <div class="flex gap-1">
+                  <button class="btn btn-circle carousel-prev btn-outline btn-primary hover:bg-primary relative hover:text-white max-md:hidden" disabled="disabled">
+                    <span class="icon-[tabler--arrow-left] size-5.5"></span>
+                  </button>
+                  <div class="carousel rounded-box">
+                    <div class="carousel-body h-full gap-6 opacity-0">
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">María Pérez</p>
+                            <p class="text-sm text-base-content/60">Estudiante de FIEC</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★★</span>
+                          </div>
+                          <p class="text-base-content/80">"El bolón con huevo es lo mejor del campus. Llena de verdad y a un precio increíble. Vengo todos los días."</p>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">Carlos Mora</p>
+                            <p class="text-sm text-base-content/60">Estudiante de FIMCP</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★★</span>
+                          </div>
+                          <p class="text-base-content/80">"Los batidos de fruta son fresquísimos. En el calor de Guayaquil son un salvavidas entre clase y clase."</p>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">Andrea Loor</p>
+                            <p class="text-sm text-base-content/60">Estudiante de FCNM</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★☆</span>
+                          </div>
+                          <p class="text-base-content/80">"La hamburguesa Frutanga es enorme y deliciosa. La recomiendo a todos mis compañeros de facultad."</p>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">Diego Suárez</p>
+                            <p class="text-sm text-base-content/60">Estudiante de EDCOM</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★★</span>
+                          </div>
+                          <p class="text-base-content/80">"El submarino es mi favorito. Pan fresco, bastante relleno y listo en minutos. Ideal para el descanso."</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-circle carousel-next btn-primary btn-outline hover:bg-primary relative hover:text-white max-md:hidden">
+                    <span class="icon-[tabler--arrow-right] size-5.5"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <!-- FAQ -->
         <section id="faqs">
           <div class="bg-base-100 relative h-full py-8 sm:py-16 lg:py-24">
@@ -463,7 +531,6 @@
           </div>
         </section>
       </main>
-
       <footer>
         <div class="mx-auto max-w-[1280px] px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
           <div class="flex items-center justify-between gap-3 max-md:flex-col">
@@ -494,14 +561,12 @@
         </div>
       </footer>
     </div>
-
     <script src="assets/dist/libs/tailwindcss-intersect/dist/observer.min.js"></script>
     <script src="assets/dist/libs/flatpickr/dist/flatpickr.js"></script>
     <script src="assets/dist/libs/flyonui/flyonui.js"></script>
     <script src="assets/dist/js/theme-utils.js"></script>
     <script src="assets/dist/js/main.js"></script>
     <script src="assets/dist/js/landing-page-free.js"></script>
-
     <div id="toast-interactive" class="hidden fixed bottom-5 right-5 z-50">
       <div class="bg-base-100 border-base-content/20 rounded-box border p-6 shadow-lg w-80">
         <div class="space-y-4">
@@ -519,7 +584,6 @@
         </button>
       </div>
     </div>
-
     <button id="demo" class="hidden">Demo Video</button>
     <button id="scrollToTopBtn" class="btn btn-circle btn-soft btn-secondary/20 bottom-15 end-15 motion-preset-slide-right motion-duration-800 motion-delay-100 fixed absolute z-[3] hidden" aria-label="Circle Soft Icon Button">
       <span class="icon-[tabler--chevron-up] size-5 shrink-0"></span>

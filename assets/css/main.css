@@ -180,3 +180,35 @@ img[alt="ESPOL"] {
     gap: 1.5rem;
   }
 }
+
+/* FAQ cards */
+#faqs .carousel-slide .rounded-box {
+  background-color: var(--color-base-100);
+  border: 1px solid var(--color-base-200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+#faqs .carousel-slide .rounded-box:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.15);
+}
+
+/* Estilo uniforme para todos los recuadros */
+.card,
+.rounded-box,
+.rounded-2xl {
+  background-color: var(--color-base-100);
+  border: 1px solid var(--color-base-200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 1rem;
+}
+
+.card:hover,
+.rounded-box:hover,
+.rounded-2xl:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.12);
+  transition: all 0.2s ease;
+}
