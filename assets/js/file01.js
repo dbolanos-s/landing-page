@@ -21,7 +21,7 @@ const showVideo = () => {
 };
 
 const renderMenu = () => {
-    fetchMenu('assets/data/menu.json')
+    fetchMenu('./assets/data/menu.json')
         .then(result => {
             if (!result.success) {
                 alert('No se pudo cargar el menú.');
