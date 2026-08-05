@@ -1,0 +1,212 @@
+html[data-theme="light"] {
+  --color-base-100: #fff8f0;
+  --color-base-200: #ffeedd;
+  --color-base-content: #2d2d2d;
+  --color-primary: #ff6b35;
+  --color-primary-content: #ffffff;
+  --color-secondary: #06d6a0;
+  --color-secondary-content: #ffffff;
+  --color-accent: #ffd166;
+}
+
+html[data-theme="dark"] {
+  --color-primary: #ff8c5a;
+  --color-primary-content: #1a1a1a;
+  --color-secondary: #05b386;
+  --color-secondary-content: #ffffff;
+  --color-accent: #ffd166;
+}
+
+html {
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2, h3, h5, .card-title {
+  font-family: 'Crimson Text', serif;
+  font-weight: 600;
+}
+
+body, p, li, label, input, textarea, select, button {
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-link {
+  transition: color 0.2s ease;
+}
+
+img[alt="ESPOL"] {
+  height: 1.75rem;
+  width: auto;
+}
+
+.btn-primary {
+  background-image: none;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-image: none;
+  background-color: #e55a28;
+  border-color: #e55a28;
+  color: #ffffff;
+}
+
+/* Hero */
+#home h1 { font-size: 4rem; }
+#home p {
+  font-size: 1.25rem;
+  line-height: 1.8rem;
+}
+
+/* Galería hero - carrusel horizontal */
+.frutanga-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.frutanga-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.frutanga-strip img {
+  height: 12rem;
+  width: 18rem;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 1rem;
+  scroll-snap-align: start;
+}
+
+/* Nosotros */
+#about-us h2 { font-size: 2.5rem !important; }
+#about-us p {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+}
+#about-us ul li {
+  font-size: 1.1rem;
+  padding: 0.4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#about-us .grid img {
+  height: 380px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.75rem;
+}
+
+/* Especialidades */
+#services .card figure img {
+  height: 16rem;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+#services .card { overflow: hidden; }
+
+/* Menú */
+#menu {
+  padding-top: 4rem;
+}
+
+#menu-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+#menu-container img {
+  height: 14rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+#menu-container .card {
+  border-top: 3px solid var(--color-primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+#menu-container .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(255, 107, 53, 0.2);
+}
+
+#menu-container .card-body h5 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#menu-container .card-body p {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .frutanga-strip img {
+    height: 14rem;
+    width: 22rem;
+  }
+  #menu-container img { height: 14rem; }
+  #about-us .grid img { height: 450px; }
+  #home h1 { font-size: 5rem; }
+}
+
+@media (max-width: 768px) {
+  #home h1 { font-size: 2.5rem; }
+}
+
+@media (min-width: 768px) {
+  #menu-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* FAQ cards */
+#faqs .carousel-slide .rounded-box {
+  background-color: var(--color-base-100);
+  border: 1px solid var(--color-base-200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+#faqs .carousel-slide .rounded-box:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.15);
+}
+
+/* Estilo uniforme para todos los recuadros */
+.card,
+.rounded-2xl {
+  background-color: var(--color-base-100);
+  border: 1px solid var(--color-base-200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 1rem;
+}
+
+.card:hover,
+.rounded-2xl:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.12);
+  transition: all 0.2s ease;
+}

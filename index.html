@@ -1,30 +1,593 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="light" data-assets-path="assets/" data-layout-path="free-landing-page/" dir="ltr" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>landing</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Frutanga | El sabor del campus ESPOL</title>
+    <meta name="description" content="Frutanga es el comedor favorito de la ESPOL: tostadas, batidos, fritada, hamburguesas y hot dogs recien hechos para los estudiantes." />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/dist/css/output.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/dist/libs/flatpickr/dist/flatpickr.css" />
+    <script type="text/javascript">
+      (function () {
+        try {
+          const root = document.documentElement;
+          const layoutPath = root.getAttribute('data-layout-path')?.replace('/', '') || 'dashboard-default';
+          const localStorageKey = `${layoutPath}-theme`;
+          window.THEME_CONFIG = { 'free-landing-page': { default: 'light', light: 'light', dark: 'dark', system: { light: 'light', dark: 'light' } } };
+          const getSystemPreference = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const resolveTheme = (selectedTheme, layoutPath) => {
+            const layoutConfig = window.THEME_CONFIG[layoutPath];
+            if (!layoutConfig) return selectedTheme === 'system' ? (getSystemPreference() ? 'dark' : 'light') : selectedTheme;
+            if (selectedTheme === 'system') {
+              const systemConfig = layoutConfig.system;
+              const prefersDark = getSystemPreference();
+              return prefersDark ? systemConfig.dark : systemConfig.light;
+            }
+            return layoutConfig[selectedTheme] || selectedTheme || layoutConfig.default || 'light';
+          };
+          const savedTheme = localStorage.getItem(localStorageKey) || 'light';
+          const resolvedTheme = resolveTheme(savedTheme, layoutPath);
+          root.setAttribute('data-theme', resolvedTheme);
+        } catch (e) {
+          console.warn('Early theme script error:', e);
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-slate-50 dark:bg-gray-900">
-    <main class="mx-auto px-4 py-20 text-center">
-      <div id="container-01">
-        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-          Tu presencia digital comienza aquí
-        </h1>
-        <p class="mt-6 text-lg leading-relaxed text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
-          Creamos experiencias web atractivas y rápidas con Tailwind CSS 4.1. Dale vida a tus ideas con un diseño moderno y responsivo.
-        </p>
-        <div id="container-02" class="mt-8 flex justify-center gap-4">
-          <button id="start" class="inline-block px-6 py-3 text-white bg-blue-600 rounded-lg">
-            Comenzar
-          </button>
-          <button id="demo" class="inline-block px-6 py-3 border border-gray-300 text-gray-700 rounded-lg dark:border-gray-600 dark:text-white">
-            Ver demo
-          </button>
+  <body>
+    <div class="bg-base-100">
+      <!-- Navbar -->
+      <header class="border-base-content/20 bg-base-100 py-0.25 fixed top-0 z-10 w-full border-b">
+        <nav class="navbar mx-auto max-w-[1280px] rounded-b-xl px-4 sm:px-6 lg:px-8">
+          <div class="w-full lg:flex lg:items-center lg:gap-2">
+            <div class="navbar-start items-center justify-between max-lg:w-full">
+              <a class="text-base-content flex items-center gap-2 text-xl font-semibold" href="#">
+                <img src="assets/img/logo_espol.png" alt="ESPOL" class="h-6 w-auto" />
+                <span class="text-primary">Frutanga</span>
+              </a>
+              <div class="flex items-center gap-5 lg:hidden">
+                <a href="#contact-us" class="btn btn-primary btn-sm">Pedir ahora</a>
+                <button type="button" class="collapse-toggle btn btn-outline btn-secondary btn-square" data-collapse="#navbar-block-4" aria-controls="navbar-block-4" aria-label="Toggle navigation">
+                  <span class="icon-[tabler--menu-2] collapse-open:hidden size-5.5"></span>
+                  <span class="icon-[tabler--x] collapse-open:block size-5.5 hidden"></span>
+                </button>
+              </div>
+            </div>
+            <div id="navbar-block-4" class="lg:navbar-center transition-height collapse hidden grow overflow-hidden font-medium duration-300 lg:flex">
+              <div class="text-base-content flex gap-6 text-base max-lg:mt-4 max-lg:flex-col lg:items-center">
+                <a href="#home" class="hover:text-primary nav-link">Inicio</a>
+                <a href="#about-us" class="hover:text-primary nav-link">Nosotros</a>
+                <a href="#services" class="hover:text-primary nav-link">Especialidades</a>
+                <a href="#menu" class="hover:text-primary nav-link">Menú</a>
+                <a href="#subscribers-data" class="hover:text-primary nav-link">Favoritos</a>
+                <a href="#contact-us" class="hover:text-primary nav-link">Contacto</a>
+                <a href="#testimonios" class="hover:text-primary nav-link">Reseñas</a>
+              </div>
+            </div>
+            <div class="navbar-end max-lg:hidden">
+              <a href="#contact-us" class="btn btn-primary">Pedir ahora</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <!-- Hero -->
+        <section id="home">
+          <div class="gap-18 md:pt-45 lg:gap-35 lg:pt-47.5 flex h-full flex-col justify-between bg-[url('../../img/free-layer-blur.png')] bg-cover bg-center bg-no-repeat py-8 pt-40 sm:py-16 md:gap-24 lg:py-24">
+            <div class="mx-auto flex max-w-[1280px] flex-col items-center gap-6 justify-self-center px-4 text-center sm:px-6 lg:px-8">
+              <h1 class="text-base-content z-1 relative text-5xl font-bold leading-[1.15] max-md:text-2xl md:max-w-3xl">
+                <span>Frutanga. El sabor<br />que mueve el campus.</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="348" height="10" viewBox="0 0 348 10" fill="none" class="-z-1 left-25 absolute -bottom-1.5 max-lg:left-4 max-md:hidden">
+                  <path d="M1.85645 8.23715C62.4821 3.49284 119.04 1.88864 180.031 1.88864C225.103 1.88864 275.146 1.32978 319.673 4.85546C328.6 5.24983 336.734 6.33887 346.695 7.60269" stroke="url(#paint0_linear_17052_181397)" stroke-width="2" stroke-linecap="round" />
+                  <defs>
+                    <linearGradient id="paint0_linear_17052_181397" x1="29.7873" y1="1.85626" x2="45.2975" y2="69.7387" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="var(--color-primary)" />
+                      <stop offset="1" stop-color="var(--color-primary-content)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </h1>
+              <p class="text-base-content/80 max-w-3xl">Tostadas, batidos, fritada, hamburguesas y hot dogs recién hechos, a precio de estudiante. Entre clase y clase, Frutanga es la parada obligada del campus.</p>
+              <a href="#menu" class="btn btn-primary btn-gradient btn-lg">
+                Ver el menú
+                <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
+              </a>
+            </div>
+            <div class="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="frutanga-strip">
+                <img src="assets/img/comedor-interior.jpeg" alt="El comedor de Frutanga" class="w-full rounded-xl object-cover shadow-sm" />
+                <img src="assets/img/comedor-mesas.jpeg" alt="Estudiantes comiendo en Frutanga" class="w-full rounded-xl object-cover shadow-sm" />
+                <img src="assets/img/licuados.webp" alt="Batido de fruta natural" class="w-full rounded-xl object-cover shadow-sm" />
+                <img src="assets/img/estudiantes-fila.jpeg" alt="Estudiantes en Frutanga" class="w-full rounded-xl object-cover shadow-sm" />
+                <img src="assets/img/cafeteria-nescafe.jpeg" alt="El comedor de la ESPOL" class="w-full rounded-xl object-cover shadow-sm" />
+                <img src="assets/img/frutanga-local.jpeg" alt="Atención en Frutanga" class="w-full rounded-xl object-cover shadow-sm" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- About us -->
+        <section id="about-us">
+          <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+            <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="flex flex-col gap-12 md:gap-16 lg:gap-24">
+                <div class="space-y-4 text-center">
+                  <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">Sobre Frutanga</h2>
+                  <p class="text-base-content/80 text-xl">Frutanga nació en un rincón del campus de la ESPOL con una idea simple: comida rica, rápida y barata para los estudiantes. Hoy somos el punto de encuentro entre clase y clase.</p>
+                  <ul class="text-base-content/80 mx-auto max-w-md space-y-2 text-start">
+                    <li class="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      Ingredientes frescos del día
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      Precios pensados para estudiantes
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      Listo en minutos, sin perder la clase
+                    </li>
+                  </ul>
+                  <a href="#menu" class="btn btn-primary btn-lg btn-gradient">
+                    Conócenos
+                    <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span>
+                  </a>
+                </div>
+                <div class="relative mb-8 h-96 w-full rounded-xl max-lg:space-y-6 sm:mb-16 lg:mb-24">
+                  <div class="grid h-full w-full grid-cols-1 gap-4 sm:grid-cols-2">
+                    <img src="assets/img/frutanga-local.jpeg" alt="El local de Frutanga en el comedor de la ESPOL" class="h-80 w-full rounded-xl object-cover object-center" />
+                    <img src="assets/img/comedor-espol.jpeg" alt="El comedor de la ESPOL donde está Frutanga" class="h-80 w-full rounded-xl object-cover object-center" />
+                  </div>
+                  <div class="bg-base-100 border-base-content/20 rounded-box lg:-bottom-25 intersect:motion-preset-fade intersect:motion-opacity-0 intersect:motion-duration-800 grid gap-10 border px-10 py-8 sm:max-lg:grid-cols-2 lg:absolute lg:left-1/2 lg:w-3/4 lg:-translate-x-1/2 lg:grid-cols-4 xl:w-max">
+                    <div class="flex flex-col items-center justify-center gap-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none" class="text-primary"><path d="M21.5 17.5C25.366 17.5 28.5 14.366 28.5 10.5C28.5 6.63401 25.366 3.5 21.5 3.5C17.634 3.5 14.5 6.63401 14.5 10.5C14.5 14.366 17.634 17.5 21.5 17.5Z" fill="currentColor" fill-opacity="0.5" /><path fill-rule="evenodd" clip-rule="evenodd" d="M29.375 38.5C26.4877 38.5 25.0439 38.5 24.147 37.603C23.25 36.7061 23.25 35.2623 23.25 32.375C23.25 29.4877 23.25 28.0439 24.147 27.147C25.0439 26.25 26.4877 26.25 29.375 26.25C32.2623 26.25 33.7061 26.25 34.603 27.147C35.5 28.0439 35.5 29.4877 35.5 32.375C35.5 35.2623 35.5 36.7061 34.603 37.603C33.7061 38.5 32.2623 38.5 29.375 38.5ZM32.819 31.0552C33.2177 30.6565 33.2177 30.0102 32.819 29.6116C32.4204 29.2128 31.7741 29.2128 31.3754 29.6116L28.0139 32.973L27.3746 32.3337C26.9759 31.9351 26.3296 31.9351 25.931 32.3337C25.5323 32.7324 25.5323 33.3788 25.931 33.7774L27.292 35.1384C27.6906 35.5372 28.3371 35.5372 28.7357 35.1384L32.819 31.0552Z" fill="currentColor" fill-opacity="0.5" /><path opacity="0.5" d="M32.1657 26.3046C31.4223 26.25 30.5102 26.25 29.375 26.25C26.4877 26.25 25.0439 26.25 24.1471 27.147C23.25 28.0439 23.25 29.4877 23.25 32.375C23.25 34.416 23.25 35.7357 23.5669 36.6508C22.8949 36.7161 22.2044 36.75 21.5 36.75C14.7345 36.75 9.25 33.6159 9.25 29.75C9.25 25.8841 14.7345 22.75 21.5 22.75C26.0735 22.75 30.0617 24.1822 32.1657 26.3046Z" fill="currentColor" fill-opacity="0.5" /></svg>
+                      <div class="space-y-2 text-center">
+                        <span class="text-primary text-3xl font-semibold" id="count1"></span>
+                        <p class="text-base-content/80">Años sirviendo</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center gap-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none" class="text-primary"><path opacity="0.5" d="M13.1788 3.5H29.8212C31.8493 3.5 32.8633 3.5 33.681 3.78457C35.2319 4.32418 36.4494 5.57758 36.9735 7.17405C37.25 8.01596 37.25 9.05984 37.25 11.1476V35.6549C37.25 37.1567 35.5262 37.9536 34.4358 36.9558C33.7951 36.3695 32.8299 36.3695 32.1892 36.9558L31.3438 37.7295C30.2209 38.7569 28.5291 38.7569 27.4062 37.7295C26.2834 36.702 24.5916 36.702 23.4688 37.7295C22.3459 38.7569 20.654 38.7569 19.5312 37.7295C18.4085 36.702 16.7165 36.702 15.5938 37.7295C14.471 38.7569 12.779 38.7569 11.6562 37.7295L10.8108 36.9558C10.1702 36.3695 9.2048 36.3695 8.56417 36.9558C7.47375 37.9536 5.75 37.1567 5.75 35.6549V11.1476C5.75 9.05984 5.75 8.01596 6.02641 7.17405C6.55059 5.57758 7.76814 4.32418 9.31893 3.78457C10.1367 3.5 11.1507 3.5 13.1788 3.5Z" fill="currentColor" fill-opacity="0.5" /></svg>
+                      <div class="space-y-2 text-center">
+                        <span class="text-primary text-3xl font-semibold" id="count2"></span>
+                        <p class="text-base-content/80">Platos en el menú</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center gap-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none" class="text-primary"><path opacity="0.5" d="M19.5073 5.88586C20.3938 4.29529 20.8373 3.5 21.5 3.5C22.1627 3.5 22.6062 4.29529 23.4927 5.88586L23.7221 6.29736C23.9741 6.74935 24.1001 6.97534 24.2965 7.12446C24.493 7.27358 24.7377 7.32893 25.2268 7.43964L25.6723 7.54042C27.3942 7.92999 28.255 8.12478 28.4597 8.78341C28.6647 9.44205 28.0777 10.1284 26.904 11.5009L26.6002 11.8561C26.2666 12.2461 26.0999 12.4411 26.025 12.6824C25.9499 12.9237 25.9751 13.1839 26.0255 13.7043L26.0713 14.1781C26.2488 16.0094 26.3377 16.9251 25.8013 17.3322C25.2651 17.7392 24.4591 17.3681 22.847 16.6258L22.4299 16.4338C21.9718 16.2229 21.7427 16.1174 21.5 16.1174C21.2573 16.1174 21.0282 16.2229 20.57 16.4338L20.153 16.6258C18.5409 17.3681 17.7348 17.7392 17.1986 17.3322C16.6624 16.9251 16.7511 16.0094 16.9286 14.1781L16.9745 13.7043C17.0249 13.1839 17.0501 12.9237 16.9751 12.6824C16.9001 12.4411 16.7333 12.2461 16.3997 11.8561L16.0961 11.5009C14.9223 10.1284 14.3354 9.44205 14.5402 8.78341C14.745 8.12478 15.6059 7.92999 17.3277 7.54042L17.7731 7.43964C18.2623 7.32893 18.507 7.27358 18.7035 7.12446C18.8998 6.97534 19.0258 6.74935 19.2778 6.29736L19.5073 5.88586Z" fill="currentColor" fill-opacity="0.5" /></svg>
+                      <div class="space-y-2 text-center">
+                        <span class="text-primary text-3xl font-semibold" id="count3"></span>
+                        <p class="text-base-content/80">Reseñas de estudiantes</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center justify-center gap-6">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="43" height="42" viewBox="0 0 43 42" fill="none" class="text-primary"><path opacity="0.5" d="M7.52088 27.5831L10.4775 18.7133C11.818 14.6917 12.4883 12.6809 14.0742 12.3065C15.6602 11.9321 17.1589 13.4309 20.1565 16.4284L26.0697 22.3415C29.0671 25.3391 30.566 26.8378 30.1915 28.4238C29.8172 30.0097 27.8064 30.6799 23.7847 32.0206L14.9149 34.9772C10.0755 36.5904 7.65572 37.397 6.37843 36.1196C5.10114 34.8423 5.90771 32.4226 7.52088 27.5831Z" fill="currentColor" fill-opacity="0.5" /></svg>
+                      <div class="space-y-2 text-center">
+                        <span class="text-primary text-3xl font-semibold" id="count4"></span>
+                        <p class="text-base-content/80">Estudiantes felices</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Blog Component -->
+        <section id="services">
+          <div class="bg-base-100 py-8 sm:py-16 lg:py-24">
+            <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
+                <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">Nuestras especialidades</h2>
+                <p class="text-base-content/80 text-xl">Desde el desayuno hasta el bajón de la tarde, en Frutanga tenemos algo para cada antojo. Para llevar a clase o comer ahí mismo con los panas.</p>
+              </div>
+              <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="card card-border shadow-none">
+                  <figure><img src="assets/img/desayunos.jpg" alt="Desayuno ecuatoriano" class="h-64 w-full object-cover" /></figure>
+                  <div class="card-body gap-3">
+                    <h5 class="card-title text-xl">Desayunos</h5>
+                    <p class="mb-5">Tostadas mixtas, bolones y un café para arrancar el día con energía antes de la primera clase. Recién hechos cada mañana.</p>
+                    <div class="card-actions">
+                      <a href="#menu" class="btn btn-primary btn-gradient">Ver más <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card card-border shadow-none">
+                  <figure><img src="assets/img/almuerzos.png" alt="Almuerzo con fritada" class="h-64 w-full object-cover" /></figure>
+                  <div class="card-body gap-3">
+                    <h5 class="card-title text-xl">Almuerzos</h5>
+                    <p class="mb-5">El plato fuerte del día: fritada, hamburguesas y hot dogs bien servidos para aguantar la tarde de clases. Llena de verdad.</p>
+                    <div class="card-actions">
+                      <a href="#menu" class="btn btn-primary btn-gradient">Ver más <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card card-border shadow-none">
+                  <figure><img src="assets/img/licuados.webp" alt="Batidos y jugos naturales" class="h-64 w-full object-cover" /></figure>
+                  <div class="card-body gap-3">
+                    <h5 class="card-title text-xl">Batidos & Jugos</h5>
+                    <p class="mb-5">Batidos de fruta natural, jugos y la famosa "frutanga" bien fría para el calor de Guayaquil. El refresco perfecto del campus.</p>
+                    <div class="card-actions">
+                      <a href="#menu" class="btn btn-primary btn-gradient">Ver más <span class="icon-[tabler--arrow-right] size-5 rtl:rotate-180"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Menú -->
+        <section id="menu" class="bg-base-200">
+          <div class="mx-auto max-w-[1280px] px-4 pt-16 sm:px-6 lg:px-8 lg:pt-16">
+            <div class="space-y-4 text-center">
+              <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">Nuestro menú</h2>
+              <p class="text-base-content/80 text-xl">Lo más pedido del campus, recién hecho y a precio de estudiante.</p>
+            </div>
+          </div>
+          <div class="mx-auto max-w-[1280px] px-4 pb-8 pt-10 sm:px-6 lg:px-8 lg:pb-24">
+            <div id="menu-container" class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+              <div class="animate-pulse space-y-4 bg-white p-4 rounded-2xl shadow">
+                <div class="w-full h-40 bg-gray-300 rounded-lg"></div>
+                <div class="h-6 bg-gray-300 rounded w-3/4"></div>
+                <div class="h-5 bg-gray-300 rounded w-1/2"></div>
+                <div class="h-6 bg-gray-300 rounded w-full"></div>
+              </div>
+              <div class="animate-pulse space-y-4 bg-white p-4 rounded-2xl shadow">
+                <div class="w-full h-40 bg-gray-300 rounded-lg"></div>
+                <div class="h-6 bg-gray-300 rounded w-3/4"></div>
+                <div class="h-5 bg-gray-300 rounded w-1/2"></div>
+                <div class="h-6 bg-gray-300 rounded w-full"></div>
+              </div>
+              <div class="animate-pulse space-y-4 bg-white p-4 rounded-2xl shadow">
+                <div class="w-full h-40 bg-gray-300 rounded-lg"></div>
+                <div class="h-6 bg-gray-300 rounded w-3/4"></div>
+                <div class="h-5 bg-gray-300 rounded w-1/2"></div>
+                <div class="h-6 bg-gray-300 rounded w-full"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Contact Us -->
+        <section id="contact-us">
+          <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+            <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="mb-12 text-center sm:mb-16 lg:mb-24">
+                <h2 class="text-base-content mb-4 text-2xl font-semibold md:text-3xl lg:text-4xl">Escríbenos o haz tu pedido</h2>
+                <p class="text-base-content/80 text-xl">¿Quieres dejar tu pedido listo o reservar para tu grupo de estudio? Mándanos los datos y te contactamos.</p>
+              </div>
+              <div class="card shadow-md">
+                <div class="card-body grid gap-10 lg:grid-cols-7">
+                  <div class="lg:col-span-4">
+                    <h2 class="text-base-content mb-6 text-3xl font-semibold">Haz tu pedido</h2>
+                    <form class="space-y-6" onsubmit="return false;">
+                      <div class="flex gap-6 max-md:flex-col">
+                        <div class="w-full">
+                          <label class="label-text" for="username">Tu nombre</label>
+                          <div class="input input-lg">
+                            <input type="text" class="grow" placeholder="Escribe tu nombre..." id="username" />
+                            <span class="icon-[tabler--user] text-base-content/80 size-5.5 my-auto ms-3 shrink-0"></span>
+                          </div>
+                        </div>
+                        <div class="w-full">
+                          <label class="label-text" for="userphone">Teléfono</label>
+                          <div class="input input-lg">
+                            <input type="text" class="grow" placeholder="09 9999 9999" id="userphone" />
+                            <span class="icon-[tabler--phone] text-base-content/80 size-5.5 my-auto ms-3 shrink-0"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex gap-6 max-md:flex-col">
+                        <div class="w-full">
+                          <label class="label-text" for="userdate">Fecha</label>
+                          <div class="input input-lg">
+                            <input type="text" class="flatpickr-date grow" placeholder="20/06/26" id="userdate" />
+                            <span class="icon-[tabler--calendar-event] text-base-content/80 size-5.5 my-auto ms-3 shrink-0"></span>
+                          </div>
+                        </div>
+                        <div class="w-full">
+                          <label class="label-text" for="usertime">Hora</label>
+                          <div class="input input-lg">
+                            <input type="text" class="grow" placeholder="12:30" id="usertime" />
+                            <span class="icon-[tabler--calendar-time] text-base-content/80 size-5.5 my-auto ms-3 shrink-0"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <label class="label-text" for="usermessage">Tu pedido</label>
+                        <div class="textarea">
+                          <textarea class="grow resize-none" aria-label="Textarea" placeholder="Cuéntanos qué quieres pedir" id="usermessage"></textarea>
+                          <span class="icon-[tabler--message-circle-2] text-base-content/80 mx-4 mt-2 size-6 shrink-0"></span>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-gradient w-full">Enviar pedido</button>
+                    </form>
+                  </div>
+                  <div class="space-y-6 lg:col-span-3">
+                    <div class="border-base-content/20 rounded-box border p-6 text-center">
+                      <h3 class="text-base-content mb-4 text-xl font-semibold">Correo / Teléfono</h3>
+                      <p class="text-base-content/80 mb-2 break-all">hola@frutanga.ec</p>
+                      <p class="text-base-content/80">09 8888 7777</p>
+                    </div>
+                    <div class="border-base-content/20 rounded-box border p-6 text-center">
+                      <h3 class="text-base-content mb-4 text-xl font-semibold">Dónde estamos</h3>
+                      <p class="text-base-content/80">Campus Gustavo Galindo,</p>
+                      <p class="text-base-content/80">ESPOL, Km 30.5 Vía Perimetral</p>
+                      <p class="text-base-content/80">junto al edificio de Bienestar,</p>
+                      <p class="text-base-content/80">Guayaquil, Ecuador</p>
+                    </div>
+                    <p class="text-base-content text-center font-medium">
+                      Horario de atención <span class="text-primary">7AM - 7PM</span> Lunes a viernes
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Subscribers -->
+        <section id="subscribers-data">
+          <div class="bg-base-100 py-8 sm:py-16 lg:py-24">
+            <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="mb-10 text-center">
+                <h2 class="text-base-content text-3xl font-semibold">¿Cuál es tu producto favorito de Frutanga?</h2>
+                <p class="text-base-content/80 max-w-2xl mx-auto">Vota por tu favorito y mira en vivo lo que elige el resto del campus.</p>
+              </div>
+              <div class="grid gap-10 lg:grid-cols-2">
+                <div class="card card-border border p-6">
+                  <h3 class="text-base-content mb-6 text-xl font-semibold">Vota aquí</h3>
+                  <form id="subscriberForm" class="space-y-5">
+                    <div>
+                      <label class="label-text block mb-2" for="subscriberName">Nombre</label>
+                      <div class="input input-lg">
+                        <input type="text" id="subscriberName" name="nombre" class="grow" placeholder="Tu nombre" required />
+                      </div>
+                    </div>
+                    <div>
+                      <label class="label-text block mb-2" for="subscriberEmail">Correo</label>
+                      <div class="input input-lg">
+                        <input type="email" id="subscriberEmail" name="email" class="grow" placeholder="tucorreo@espol.edu.ec" required />
+                      </div>
+                    </div>
+                    <div>
+                      <label class="label-text block mb-2" for="subscriberFavorite">Producto favorito</label>
+                      <select id="subscriberFavorite" name="favorito" class="select select-lg" required>
+                        <option value="" selected disabled>Elige tu favorito</option>
+                        <option value="Tostada mixta">Tostada mixta</option>
+                        <option value="Bolón con huevo">Bolón con huevo</option>
+                        <option value="Empanadas">Empanadas</option>
+                        <option value="Sándwich submarino">Sándwich submarino</option>
+                        <option value="Hamburguesa Frutanga">Hamburguesa Frutanga</option>
+                        <option value="Batido de fruta">Batido de fruta</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-gradient w-full">Suscribirme</button>
+                  </form>
+                </div>
+                <div class="overflow-x-auto rounded-box border border-base-content/20">
+                  <table class="table w-full">
+                    <thead class="bg-base-200">
+                      <tr><th>#</th><th>Nombre</th><th>Producto favorito</th></tr>
+                    </thead>
+                    <tbody id="subscribers">
+                      <tr><td colspan="3" class="text-center text-base-content/70 py-6">Todavía no hay registros.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Testimonios -->
+        <section id="testimonios">
+          <div class="bg-base-200 py-8 sm:py-16 lg:py-24">
+            <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="mb-12 space-y-4 text-center sm:mb-16 lg:mb-24">
+                <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">Lo que dicen los estudiantes</h2>
+                <p class="text-base-content/80 text-xl">Opiniones reales de la comunidad ESPOL.</p>
+              </div>
+              <div id="testimonios-carousel" data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "md": 2, "lg": 3 } }' class="relative w-full">
+                <div class="flex gap-1">
+                  <button class="btn btn-circle carousel-prev btn-outline btn-primary hover:bg-primary relative hover:text-white max-md:hidden" disabled="disabled">
+                    <span class="icon-[tabler--arrow-left] size-5.5"></span>
+                  </button>
+                  <div class="carousel rounded-box">
+                    <div class="carousel-body h-full gap-6 opacity-0">
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">María Pérez</p>
+                            <p class="text-sm text-base-content/60">Estudiante de FIEC</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★★</span>
+                          </div>
+                          <p class="text-base-content/80">"El bolón con huevo es lo mejor del campus. Llena de verdad y a un precio increíble. Vengo todos los días."</p>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">Carlos Mora</p>
+                            <p class="text-sm text-base-content/60">Estudiante de FIMCP</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★★</span>
+                          </div>
+                          <p class="text-base-content/80">"Los batidos de fruta son fresquísimos. En el calor de Guayaquil son un salvavidas entre clase y clase."</p>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">Andrea Loor</p>
+                            <p class="text-sm text-base-content/60">Estudiante de FCNM</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★☆</span>
+                          </div>
+                          <p class="text-base-content/80">"La hamburguesa Frutanga es enorme y deliciosa. La recomiendo a todos mis compañeros de facultad."</p>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="bg-base-100 border border-base-200 rounded-2xl p-6 shadow-md h-full">
+                          <div class="mb-4">
+                            <p class="font-semibold text-base-content">Diego Suárez</p>
+                            <p class="text-sm text-base-content/60">Estudiante de EDCOM</p>
+                          </div>
+                          <div class="flex gap-1 mb-3">
+                            <span class="text-accent text-xl">★★★★★</span>
+                          </div>
+                          <p class="text-base-content/80">"El submarino es mi favorito. Pan fresco, bastante relleno y listo en minutos. Ideal para el descanso."</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-circle carousel-next btn-primary btn-outline hover:bg-primary relative hover:text-white max-md:hidden">
+                    <span class="icon-[tabler--arrow-right] size-5.5"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- FAQ -->
+        <section id="faqs">
+          <div class="bg-base-100 relative h-full py-8 sm:py-16 lg:py-24">
+            <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+              <div class="mb-12 space-y-4 text-wrap text-center sm:mb-16 lg:mb-24">
+                <h2 class="text-base-content text-2xl font-semibold md:text-3xl lg:text-4xl">Preguntas frecuentes</h2>
+                <p class="text-base-content/80 text-xl">Las dudas más comunes de los estudiantes sobre Frutanga.</p>
+              </div>
+              <div id="faq-carousel-1" data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "md": 2, "lg": 3 } }' class="relative w-full">
+                <div class="flex gap-1">
+                  <button class="btn btn-circle carousel-prev btn-outline btn-primary hover:bg-primary relative hover:text-white max-md:hidden" disabled="disabled">
+                    <span class="icon-[tabler--arrow-left] size-5.5"></span>
+                  </button>
+                  <div class="carousel rounded-box">
+                    <div class="carousel-body h-full gap-12 opacity-0">
+                      <div class="carousel-slide m-2">
+                        <div class="rounded-box hover:bg-base-100 hover:ring-primary p-4 text-center hover:ring">
+                          <h5 class="text-base-content mb-2 text-xl font-semibold">¿Hacen entregas en el campus?</h5>
+                          <p class="text-base-content/80">Sí. Puedes dejar tu pedido por el formulario o por WhatsApp y lo llevamos a tu facultad dentro del campus.</p>
+                          <div class="group mt-5 flex items-center justify-center gap-2">
+                            <a href="#" class="link link-animated link-primary font-normal">Ver más</a>
+                            <span class="icon-[tabler--arrow-narrow-right] text-primary size-5 shrink-0 transition-transform group-hover:-translate-x-1 rtl:rotate-180"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="rounded-box hover:bg-base-100 hover:ring-primary p-4 text-center hover:ring">
+                          <h5 class="text-base-content mb-2 text-xl font-semibold">¿Cómo hago un pedido?</h5>
+                          <p class="text-base-content/80">Llena el formulario de "Haz tu pedido" con tu nombre y lo que quieres, y te confirmamos enseguida.</p>
+                          <div class="group mt-5 flex items-center justify-center gap-2">
+                            <a href="#" class="link link-animated link-primary font-normal">Ver más</a>
+                            <span class="icon-[tabler--arrow-narrow-right] text-primary size-5 shrink-0 transition-transform group-hover:-translate-x-1 rtl:rotate-180"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="rounded-box hover:bg-base-100 hover:ring-primary p-4 text-center hover:ring">
+                          <h5 class="text-base-content mb-2 text-xl font-semibold">¿Cuál es el horario?</h5>
+                          <p class="text-base-content/80">Atendemos de lunes a viernes, de 7:00 AM a 7:00 PM. En épocas de exámenes solemos extender el horario.</p>
+                          <div class="group mt-5 flex items-center justify-center gap-2">
+                            <a href="#" class="link link-animated link-primary font-normal">Ver más</a>
+                            <span class="icon-[tabler--arrow-narrow-right] text-primary size-5 shrink-0 transition-transform group-hover:-translate-x-1 rtl:rotate-180"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="rounded-box hover:bg-base-100 hover:ring-primary p-4 text-center hover:ring">
+                          <h5 class="text-base-content mb-2 text-xl font-semibold">¿Qué formas de pago aceptan?</h5>
+                          <p class="text-base-content/80">Aceptamos efectivo y transferencia (Deuna, transferencia bancaria).</p>
+                          <div class="group mt-5 flex items-center justify-center gap-2">
+                            <a href="#" class="link link-animated link-primary font-normal">Ver más</a>
+                            <span class="icon-[tabler--arrow-narrow-right] text-primary size-5 shrink-0 transition-transform group-hover:-translate-x-1 rtl:rotate-180"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel-slide m-2">
+                        <div class="rounded-box hover:bg-base-100 hover:ring-primary p-4 text-center hover:ring">
+                          <h5 class="text-base-content mb-2 text-xl font-semibold">¿Tienen opciones vegetarianas?</h5>
+                          <p class="text-base-content/80">¡Claro! Tenemos tostadas, bolones y batidos de fruta sin carne. Solo avísanos al pedir.</p>
+                          <div class="group mt-5 flex items-center justify-center gap-2">
+                            <a href="#" class="link link-animated link-primary font-normal">Ver más</a>
+                            <span class="icon-[tabler--arrow-narrow-right] text-primary size-5 shrink-0 transition-transform group-hover:-translate-x-1 rtl:rotate-180"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-circle carousel-next btn-primary btn-outline hover:bg-primary relative hover:text-white max-md:hidden">
+                    <span class="icon-[tabler--arrow-right] size-5.5"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="mx-auto max-w-[1280px] px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
+          <div class="flex items-center justify-between gap-3 max-md:flex-col">
+            <a href="index.html" class="text-base-content flex items-center gap-2 text-xl font-semibold">
+              <img src="assets/img/logo_espol.png" alt="ESPOL" class="h-6 w-auto" />
+              <span class="text-primary">Frutanga</span>
+            </a>
+            <nav class="flex items-center gap-6">
+              <a href="#about-us" class="link link-animated text-base-content/80 font-medium">Nosotros</a>
+              <a href="#menu" class="link link-animated text-base-content/80 font-medium">Menú</a>
+              <a href="#contact-us" class="link link-animated text-base-content/80 font-medium">Contacto</a>
+              <a href="#faqs" class="link link-animated text-base-content/80 font-medium">FAQ</a>
+            </nav>
+            <div class="text-base-content flex h-5 gap-4">
+              <a href="#!" rel="noopener noreferrer" aria-label="Discord"><span class="icon-[tabler--brand-discord] size-5"></span></a>
+              <a href="#!" rel="noopener noreferrer" aria-label="Twitter"><span class="icon-[tabler--brand-x] size-5"></span></a>
+              <a href="#!" rel="noopener noreferrer" aria-label="Github"><span class="icon-[tabler--brand-github] size-5"></span></a>
+            </div>
+          </div>
         </div>
+        <div class="divider"></div>
+        <div class="mx-auto max-w-[1280px] px-4 py-8 sm:px-6 lg:px-8">
+          <div class="text-base-content text-center text-base">
+            &copy;2026 <a href="index.html" class="text-primary">Frutanga</a> • El sabor del campus ESPOL
+            <br class="md:hidden" />
+            Proyecto 03 - Desarrollo de Aplicaciones Web y Móviles
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="assets/dist/libs/tailwindcss-intersect/dist/observer.min.js"></script>
+    <script src="assets/dist/libs/flatpickr/dist/flatpickr.js"></script>
+    <script src="assets/dist/libs/flyonui/flyonui.js"></script>
+    <script src="assets/dist/js/theme-utils.js"></script>
+    <script src="assets/dist/js/main.js"></script>
+    <script src="assets/dist/js/landing-page-free.js"></script>
+    <div id="toast-interactive" class="hidden fixed bottom-5 right-5 z-50">
+      <div class="bg-base-100 border-base-content/20 rounded-box border p-6 shadow-lg w-80">
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-base-content font-semibold">Promo del día</h3>
+            <p class="text-base-content/80 text-sm">Regístrate en el club Frutanga y entérate de los combos en descuento de hoy.</p>
+          </div>
+          <div class="flex gap-3">
+            <button class="btn btn-primary btn-sm flex-1">Sí, quiero</button>
+            <button class="btn btn-outline btn-secondary btn-sm flex-1">No ahora</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-ghost btn-circle btn-sm absolute top-2 right-2" aria-label="Close">
+          <span class="icon-[tabler--x] size-4"></span>
+        </button>
       </div>
-    </main>
+    </div>
+    <button id="demo" class="hidden">Demo Video</button>
+    <button id="scrollToTopBtn" class="btn btn-circle btn-soft btn-secondary/20 bottom-15 end-15 motion-preset-slide-right motion-duration-800 motion-delay-100 fixed absolute z-[3] hidden" aria-label="Circle Soft Icon Button">
+      <span class="icon-[tabler--chevron-up] size-5 shrink-0"></span>
+    </button>
+    <script type="module" src="assets/js/file01.js"></script>
   </body>
 </html>
